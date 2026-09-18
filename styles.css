@@ -1,0 +1,425 @@
+/* ============================================================
+   Carlos Medina Pitre & Abogados — hoja de estilos
+   Paleta: azul marino (marca), pergamino cálido, bronce como acento único
+   Tipografía: Cormorant Garamond (titulares) + Inter (texto e interfaz)
+   ============================================================ */
+
+:root {
+  --navy:        #16213e;
+  --navy-deep:   #0c1526;
+  --ink:         #1c2333;
+  --parchment:   #f7f4ee;
+  --paper:       #ffffff;
+  --line:        #ddd6c6;
+  --line-soft:   #e7e2d5;
+  --bronze:      #8a6a3b;
+  --bronze-light:#c9ad7c;
+  --text-muted:  #5b5f6b;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --max-width: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--bronze);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ---------------- Header ---------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(247, 244, 238, 0.92);
+  backdrop-filter: saturate(140%) blur(6px);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark { height: 46px; width: auto; }
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--navy);
+  line-height: 1.15;
+}
+.brand-name em { font-style: normal; color: var(--bronze); }
+
+.site-nav ul {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  font-size: 0.94rem;
+  color: var(--ink);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: var(--bronze);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+.site-nav a:hover::after { transform: scaleX(1); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: var(--navy);
+  border-radius: 0;
+}
+
+/* ---------------- Hero ---------------- */
+
+.hero {
+  padding: 96px 0 84px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-inner { max-width: 760px; }
+
+.hero-kicker {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--bronze);
+  margin: 0 0 18px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.12;
+  letter-spacing: 0.2px;
+}
+
+.hero-lead {
+  margin: 28px 0 40px;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 640px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* ---------------- Buttons ---------------- */
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: var(--paper);
+}
+.btn-primary:hover { background: var(--navy-deep); }
+
+.btn-ghost {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+.btn-ghost:hover { background: var(--navy); color: var(--paper); }
+
+.btn-outline {
+  border-color: rgba(255,255,255,0.55);
+  color: var(--paper);
+  padding: 11px 22px;
+  font-size: 0.88rem;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+.btn-outline:hover { background: rgba(255,255,255,0.12); }
+
+/* ---------------- About ---------------- */
+
+.about { padding: 84px 0; }
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 56px;
+}
+
+.about-label p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--bronze);
+  margin: 0;
+  border-left: 1px solid var(--line);
+  padding-left: 20px;
+}
+
+.about-lead {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  line-height: 1.45;
+  color: var(--navy);
+  margin: 0 0 22px;
+}
+
+.about-copy p:last-child {
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0;
+}
+
+/* ---------------- Areas ---------------- */
+
+.areas {
+  padding: 84px 0;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.section-heading { margin-bottom: 48px; }
+
+.section-heading h2 {
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+}
+
+.section-heading p {
+  margin: 10px 0 0;
+  color: var(--text-muted);
+}
+
+.section-heading.light h2 { color: var(--paper); }
+.section-heading.light p { color: rgba(247,244,238,0.72); }
+
+.areas-list {
+  border-top: 1px solid var(--line);
+}
+
+.area-row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+
+.area-row h3 {
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.area-row p {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 480px;
+}
+
+/* ---------------- Contact ---------------- */
+
+.contact {
+  background: var(--navy-deep);
+  padding: 88px 0 96px;
+  color: var(--paper);
+}
+
+.contact-inner .section-heading { margin-bottom: 56px; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.contact-card {
+  background: var(--navy-deep);
+  padding: 34px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.contact-icon {
+  width: 34px;
+  height: 34px;
+  color: var(--bronze-light);
+  margin-bottom: 6px;
+}
+.contact-icon svg { width: 100%; height: 100%; }
+
+.contact-label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--bronze-light);
+  margin: 0;
+}
+
+.contact-value {
+  margin: 0 0 6px;
+  font-size: 1.02rem;
+  word-break: break-word;
+}
+
+/* ---------------- Footer ---------------- */
+
+.site-footer {
+  background: var(--navy);
+  padding: 40px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.footer-logo { height: 34px; }
+
+.footer-inner p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(247,244,238,0.65);
+}
+
+/* ---------------- WhatsApp floating button ---------------- */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #16213e;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(12, 21, 38, 0.35);
+  z-index: 60;
+  transition: transform .2s ease;
+}
+.whatsapp-float svg { width: 26px; height: 26px; }
+.whatsapp-float:hover { transform: translateY(-2px); }
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 860px) {
+  .about-inner { grid-template-columns: 1fr; gap: 24px; }
+  .about-label p { border-left: none; border-top: 1px solid var(--line); padding-left: 0; padding-top: 14px; }
+  .area-row { grid-template-columns: 1fr; gap: 8px; }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .wrap { padding: 0 20px; }
+  .header-inner { height: 72px; }
+  .brand-name { font-size: 1.05rem; }
+  .brand-mark { height: 38px; }
+
+  .nav-toggle { display: flex; }
+  .site-nav ul {
+    position: absolute;
+    top: 72px;
+    left: 0; right: 0;
+    background: var(--parchment);
+    border-bottom: 1px solid var(--line-soft);
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 20px 18px;
+    display: none;
+  }
+  .site-nav ul.open { display: flex; }
+  .site-nav li { padding: 12px 0; border-bottom: 1px solid var(--line-soft); }
+  .site-nav li:last-child { border-bottom: none; }
+
+  .hero { padding: 64px 0 56px; }
+  .about, .areas { padding: 60px 0; }
+  .contact { padding: 64px 0 72px; }
+}
