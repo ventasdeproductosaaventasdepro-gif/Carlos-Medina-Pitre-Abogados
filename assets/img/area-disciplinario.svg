@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#1a4068"/><stop offset="1" stop-color="#081626"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+    <stop offset="0" stop-color="#c9a96a" stop-opacity=".30"/>
+    <stop offset="1" stop-color="#c9a96a" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+    <path d="M28 0H0V28" fill="none" stroke="#ece6d6" stroke-opacity=".045" stroke-width="1"/>
+  </pattern>
+  
+</defs>
+<rect width="600" height="450" fill="url(#bg)"/>
+<rect width="600" height="450" fill="url(#grid)"/>
+<rect width="600" height="450" fill="url(#glow)"/>
+<g transform="rotate(-7 300 225)"><rect x="176" y="78" width="200" height="270" rx="4" fill="#ece6d6" stroke="#ece6d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".07" stroke-opacity=".5"/></g>
+<rect x="212" y="70" width="210" height="282" rx="4" fill="#102841" stroke="#ece6d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="234" y="94" width="86" height="12" rx="2" fill="#c9a96a" fill-opacity=".22"/>
+<rect x="234" y="94" width="86" height="12" rx="2" fill="none" stroke="#c9a96a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="234" y1="130" x2="388" y2="130" stroke="#ece6d6" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+<line x1="234" y1="152" x2="372" y2="152" stroke="#ece6d6" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+<line x1="234" y1="174" x2="388" y2="174" stroke="#ece6d6" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+<line x1="234" y1="196" x2="354" y2="196" stroke="#ece6d6" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+<line x1="234" y1="218" x2="388" y2="218" stroke="#ece6d6" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+<line x1="234" y1="240" x2="330" y2="240" stroke="#ece6d6" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+<path d="M354 344 l-12 46 l20 -10 l12 14 l6 -44z" fill="#c9a96a" stroke="#c9a96a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".22"/>
+<path d="M390 344 l12 46 l-20 -10 l-12 14 l-6 -44z" fill="#c9a96a" stroke="#c9a96a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".22"/>
+<circle cx="372" cy="314" r="42" fill="#102841" stroke="#c9a96a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="372" cy="314" r="33" fill="none" stroke="#c9a96a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".6"/>
+<polygon points="372.0,294.0 377.0,307.1 391.0,307.8 380.1,316.6 383.8,330.2 372.0,322.5 360.2,330.2 363.9,316.6 353.0,307.8 367.0,307.1" fill="#c9a96a" stroke="#c9a96a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-opacity=".22"/>
+<circle cx="190" cy="300" r="46" fill="#1a4068" fill-opacity=".55" stroke="#ece6d6" stroke-width="4"/>
+<path d="M162 286 a32 32 0 0 1 22 -20" fill="none" stroke="#ece6d6" stroke-opacity=".7" stroke-width="3" stroke-linecap="round"/>
+<line x1="223" y1="333" x2="264" y2="374" stroke="#c9a96a" stroke-width="9" stroke-linecap="round"/>
+<rect x="14" y="14" width="572" height="422" fill="none" stroke="#c9a96a" stroke-opacity=".38" stroke-width="1"/>
+</svg>

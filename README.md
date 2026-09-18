@@ -1,52 +1,50 @@
-# Carlos Medina Pitre & Abogados — Sitio web informativo
+# Carlos Medina Pitre & Abogados — Sitio web
 
-Página web estática de una sola vista (landing page) para el despacho
-**Carlos Medina Pitre & Abogados**. Presenta el despacho, sus áreas de
-práctica y los canales de contacto (correo, WhatsApp e Instagram).
+Página estática (HTML, CSS y JavaScript puro). No requiere instalación, build ni servidor:
+funciona en GitHub Pages, Netlify, Vercel o cualquier hosting.
 
-## Estructura del proyecto
+## Estructura
 
 ```
-├── index.html              # Página principal (todo el contenido del sitio)
-├── styles.css              # Estilos del sitio
-├── script.js                # Menú móvil, copiar correo y año del footer
-├── assets/
-│   ├── logo-mark.png              # Isotipo (fondo transparente) — uso en fondos claros
-│   ├── logo-mark-white.png        # Isotipo en blanco — uso en fondos oscuros
-│   ├── logo-horizontal.png        # Logo horizontal — uso en fondos claros
-│   └── logo-horizontal-white.png  # Logo horizontal en blanco — uso en fondos oscuros
-└── README.md
+├── index.html              Contenido del sitio
+├── styles.css              Estilos (variables de color y tipografía al inicio, bloque :root)
+├── script.js               Menú móvil, copiar correo, año del pie de página
+├── README.md
+└── assets/
+    ├── logo/               Logos (horizontal, emblema, versiones blancas para fondo oscuro)
+    ├── img/                Ilustraciones de portada, "Quiénes somos" y de cada área de práctica
+    ├── fonts/              Newsreader y Public Sans, alojadas localmente (no dependen de Google)
+    ├── favicon-32.png, favicon-192.png, apple-touch-icon.png
+    └── og-image.png        Imagen para la vista previa al compartir el enlace
 ```
 
-> **Nota:** no se incluyeron `admin.html` / `admin.js` porque este sitio es
-> puramente informativo (no gestiona datos ni requiere un panel de
-> administración). Si en el futuro se necesita, por ejemplo, un formulario
-> de contacto con backend o gestión de contenido, se pueden agregar en ese
-> momento.
+## Publicar en GitHub Pages
 
-## Cómo publicarlo con GitHub Pages
+1. Suba **todo el contenido de esta carpeta** (incluida `assets/`) a la raíz de un repositorio.
+2. En **Settings → Pages**, elija la rama `main` y la carpeta `/ (root)`.
+3. Guarde. El sitio quedará en `https://<usuario>.github.io/<repositorio>/`.
 
-1. Sube estos archivos a un repositorio de GitHub (puede ser la raíz del
-   repositorio o una carpeta `/docs`).
-2. Ve a **Settings → Pages** en el repositorio.
-3. En **Source**, selecciona la rama (por ejemplo `main`) y la carpeta
-   raíz (`/`).
-4. Guarda. GitHub publicará el sitio en una URL del tipo:
-   `https://<tu-usuario>.github.io/<nombre-del-repositorio>/`
+> Importante: la carpeta `assets/` debe subirse junto con `index.html`. Si falta o cambia de
+> nombre, los logos y las imágenes no cargarán.
 
-No requiere backend, build ni dependencias: es HTML, CSS y JavaScript
-puro, así que funciona tal cual en GitHub Pages, Netlify, Vercel o
-cualquier hosting estático.
+## Personalización
 
-## Personalización rápida
+- **Colores y tipografía:** variables al inicio de `styles.css`.
+- **Textos, teléfono y correo:** directamente en `index.html`.
+- **WhatsApp:** los enlaces usan `https://wa.me/573013883620` con un mensaje inicial. Para cambiar el
+  mensaje, edite el texto después de `?text=` (codificado para URL).
+- **Imágenes:** las ilustraciones son vectoriales (SVG). Para usar fotografías reales, reemplace el
+  archivo correspondiente en `assets/img/` conservando la proporción (4:3 en las áreas, 4:5 en portada
+  y "Quiénes somos") y actualice el `src` en `index.html`.
 
-- **Colores y tipografía:** definidos como variables al inicio de
-  `styles.css` (bloque `:root`).
-- **Textos:** todo el contenido (quiénes somos, áreas de práctica,
-  contacto) está directamente en `index.html`.
-- **WhatsApp:** el enlace usa el formato `https://wa.me/57XXXXXXXXXX`
-  (número actual: `+57 301 388 3620`). Aparece tanto en el botón del
-  encabezado/contacto como en el botón flotante inferior derecho.
-- **Correo:** el botón "Copiar correo" usa la API del portapapeles del
-  navegador (con respaldo para navegadores antiguos), definida en
-  `script.js`.
+## Vista previa al compartir el enlace
+
+Cuando el sitio tenga su dirección definitiva, descomente en `index.html` la etiqueta `og:image` y
+reemplace `SU-DOMINIO` por el dominio real. Con eso, WhatsApp y redes sociales mostrarán la imagen
+`assets/og-image.png` al compartir el enlace.
+
+## Nota sobre los logos
+
+Los logos entregados son PNG. Se recortaron y se separó el emblema (CM) para el favicon y los usos
+pequeños. Si necesita usar el logo en tamaños grandes (pendones, papelería), conviene contar con la
+versión vectorial (SVG, AI o PDF) del diseñador.

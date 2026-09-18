@@ -1,50 +1,72 @@
 // Carlos Medina Pitre & Abogados — interacciones del sitio
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Año dinámico en el footer
+  // Año dinámico en el pie de página
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Sombra del encabezado al desplazarse
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => header && header.classList.toggle('is-scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   // Menú móvil
   const navToggle = document.getElementById('navToggle');
   const navList = document.getElementById('navList');
 
   if (navToggle && navList) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navList.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
+    const setOpen = (open) => {
+      navList.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    };
 
-    // Cierra el menú al seleccionar un enlace
-    navList.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navList.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
+    navToggle.addEventListener('click', () => setOpen(!navList.classList.contains('open')));
+    navList.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navList.classList.contains('open')) {
+        setOpen(false);
+        navToggle.focus();
+      }
+    });
+    document.addEventListener('click', (e) => {
+      if (navList.classList.contains('open') && !navList.contains(e.target) && !navToggle.contains(e.target)) {
+        setOpen(false);
+      }
     });
   }
 
-  // Copiar correo electrónico al portapapeles
+  // Copiar correo al portapapeles
   const copyBtn = document.getElementById('copyEmailBtn');
+  const status = document.getElementById('copyStatus');
+
   if (copyBtn) {
     const originalLabel = copyBtn.textContent;
+
     copyBtn.addEventListener('click', async () => {
-      const email = copyBtn.getAttribute('data-email');
+      const email = copyBtn.dataset.email;
       try {
         await navigator.clipboard.writeText(email);
       } catch (err) {
-        // Respaldo para navegadores sin soporte de Clipboard API
+        // Respaldo para navegadores sin Clipboard API
         const temp = document.createElement('textarea');
         temp.value = email;
+        temp.setAttribute('readonly', '');
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
         document.body.appendChild(temp);
         temp.select();
         document.execCommand('copy');
         document.body.removeChild(temp);
       }
       copyBtn.textContent = 'Correo copiado';
-      setTimeout(() => { copyBtn.textContent = originalLabel; }, 2200);
+      if (status) status.textContent = 'Correo copiado al portapapeles';
+      setTimeout(() => {
+        copyBtn.textContent = originalLabel;
+        if (status) status.textContent = '';
+      }, 2200);
     });
   }
-
 });
