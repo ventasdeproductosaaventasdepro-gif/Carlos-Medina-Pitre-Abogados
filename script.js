@@ -38,6 +38,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Aparición suave de elementos marcados con .reveal al entrar en pantalla
+  const revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length) {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      revealEls.forEach((el) => el.classList.add('is-visible'));
+    } else {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25, rootMargin: '0px 0px -60px 0px' });
+
+      revealEls.forEach((el) => revealObserver.observe(el));
+    }
+  }
+
   // Copiar correo al portapapeles
   const copyBtn = document.getElementById('copyEmailBtn');
   const status = document.getElementById('copyStatus');

@@ -316,56 +316,88 @@ h1, h2, h3 {
 }
 
 /* ---------- Quiénes somos ---------- */
-.about { padding: 120px 0; background: var(--white); }
-
-.about-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-  gap: 96px;
-  align-items: center;
-}
-
-.about-figure { position: relative; max-width: 470px; }
-.about-figure img {
+.about {
   position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: center 22%;
-  border-radius: 20px;
-  box-shadow: 0 30px 60px -18px rgba(16, 40, 65, .35);
-  filter: saturate(1.05) contrast(1.02);
+  padding: 140px 0;
+  background: var(--white);
+  overflow: hidden;
+  isolation: isolate;
 }
-.about-figure::after {
-  content: '';
+
+/* Monograma tenue de marca, en eco con el de la portada */
+.about-mark {
   position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  background: linear-gradient(200deg, rgba(16, 40, 65, .16) 0%, rgba(16, 40, 65, .02) 55%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(9rem, 26vw, 20rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--navy-800);
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.about-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-copy {
+  max-width: 46em;
+  text-align: center;
+}
+
+.about-rule {
+  display: block;
+  width: 64px;
+  height: 2px;
+  margin: 0 auto 28px;
+  background: linear-gradient(90deg, transparent, var(--gold-deep) 50%, transparent);
 }
 
 .about-copy h2 {
   font-size: clamp(2.1rem, 3.6vw, 3rem);
   line-height: 1.1;
-  margin-bottom: 30px;
+  margin-bottom: 34px;
 }
 
 .about-lead {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
-  line-height: 1.55;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 450;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.5;
   color: var(--navy-800);
-  margin-bottom: 22px;
-  max-width: 30em;
+  margin: 0 auto 24px;
+  max-width: 32em;
+  letter-spacing: -0.005em;
 }
 
 .about-copy > p:not(.about-lead) {
   font-family: var(--font-body);
   color: var(--muted);
   font-size: 1.06rem;
-  line-height: 1.65;
-  max-width: 34em;
+  line-height: 1.75;
+  margin: 0 auto;
+  max-width: 38em;
+}
+
+/* Aparición suave al entrar en pantalla */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform .9s cubic-bezier(.2, .7, .2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 
@@ -559,7 +591,7 @@ h1, h2, h3 {
 /* ---------- Responsive ---------- */
 @media (max-width: 1040px) {
   .site-nav ul { gap: 24px; }
-  .about-grid, .contact-grid { gap: 56px; }
+  .contact-grid { gap: 56px; }
   .areas-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -567,8 +599,7 @@ h1, h2, h3 {
   .hero { height: 82vh; min-height: 540px; max-height: 720px; }
   .hero-overlay { padding-bottom: 11%; }
   .about, .areas { padding: 84px 0; }
-  .about-grid { grid-template-columns: 1fr; }
-  .about-figure { max-width: 380px; margin-left: 16px; }
+  .about-copy { max-width: 34em; }
   .section-heading { grid-template-columns: 1fr; gap: 16px; margin-bottom: 44px; }
   .section-heading p { justify-self: start; }
   .contact { padding: 84px 0 92px; }
@@ -608,6 +639,7 @@ h1, h2, h3 {
 }
 
 @media (max-width: 640px) {
+  .about-copy { padding-inline: 4px; }
   .areas-grid { grid-template-columns: 1fr; gap: 48px; }
   .hero { height: 76vh; min-height: 480px; max-height: 640px; }
   .hero-overlay { padding-bottom: 13%; }
