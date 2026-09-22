@@ -506,9 +506,10 @@ h1, h2, h3 {
   margin-bottom: 22px;
 }
 .contact-lead {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  line-height: 1.45;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.15rem;
+  line-height: 1.55;
   color: rgba(236, 230, 214, .9);
   margin-bottom: 36px;
 }
@@ -541,8 +542,9 @@ h1, h2, h3 {
   margin-bottom: 2px;
 }
 .contact-value {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.15rem;
   line-height: 1.3;
   color: var(--white);
   overflow-wrap: anywhere;
@@ -564,9 +566,10 @@ h1, h2, h3 {
 }
 .footer-logo { height: 42px; width: auto; }
 .footer-tagline {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.2rem;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
   color: var(--gold-soft);
 }
 .footer-legal { font-size: 0.86rem; }
