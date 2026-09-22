@@ -369,15 +369,15 @@ h1, h2, h3 {
 }
 
 .about-lead {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 450;
-  font-size: clamp(1.25rem, 2vw, 1.55rem);
-  line-height: 1.5;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.06rem;
+  line-height: 1.75;
   color: var(--navy-800);
   margin: 0 auto 24px;
-  max-width: 32em;
-  letter-spacing: -0.005em;
+  max-width: 38em;
+  letter-spacing: normal;
 }
 
 .about-copy > p:not(.about-lead) {
