@@ -323,6 +323,15 @@ h1, h2, h3 {
   overflow: hidden;
   isolation: isolate;
 }
+/* Forzar texto normal (sin negrita) en el título y texto de Quiénes somos */
+.about-copy h2 {
+  font-weight: 400; /* Forzar peso regular en lugar de la negrita por defecto del h2 */
+}
+
+.about-lead,
+.about-copy > p:not(.about-lead) {
+  font-weight: 400; /* Asegurar que no sea semi-bold ni bold */
+}
 
 /* Monograma tenue de marca, en eco con el de la portada */
 .about-mark {
