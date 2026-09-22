@@ -323,15 +323,6 @@ h1, h2, h3 {
   overflow: hidden;
   isolation: isolate;
 }
-/* Forzar texto normal (sin negrita) en el título y texto de Quiénes somos */
-.about-copy h2 {
-  font-weight: 400; /* Forzar peso regular en lugar de la negrita por defecto del h2 */
-}
-
-.about-lead,
-.about-copy > p:not(.about-lead) {
-  font-weight: 400; /* Asegurar que no sea semi-bold ni bold */
-}
 
 /* Monograma tenue de marca, en eco con el de la portada */
 .about-mark {
@@ -344,7 +335,7 @@ h1, h2, h3 {
   font-size: clamp(9rem, 26vw, 20rem);
   line-height: 1;
   letter-spacing: 0.01em;
-  color: var(--muted);
+  color: var(--navy-800);
   opacity: 0.02;
   pointer-events: none;
   z-index: 0;
@@ -378,15 +369,15 @@ h1, h2, h3 {
 }
 
 .about-lead {
-  font-family: var(--font-body);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.06rem;
-  line-height: 1.75;
-  color: #4d5867 !important;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 450;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.5;
+  color: var(--navy-800);
   margin: 0 auto 24px;
-  max-width: 38em;
-  letter-spacing: normal;
+  max-width: 32em;
+  letter-spacing: -0.005em;
 }
 
 .about-copy > p:not(.about-lead) {
