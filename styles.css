@@ -306,6 +306,7 @@ h1, h2, h3 {
   font-size: clamp(1.5rem, 3.2vw, 2.3rem);
   line-height: 1.35;
   text-align: right;
+  text-wrap: balance;
   letter-spacing: -0.01em;
   text-shadow: 0 4px 20px rgba(0, 0, 0, .4);
 }
@@ -518,16 +519,6 @@ h1, h2, h3 {
   line-height: 1.08;
   margin-bottom: 22px;
 }
-.contact-lead {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
-  line-height: 1.5;
-  color: var(--white);
-  margin-bottom: 0;
-}
-
 .contact-list { border-top: 1px solid rgba(236, 230, 214, .2); }
 
 .contact-row {
@@ -643,7 +634,11 @@ h1, h2, h3 {
   .areas-grid { grid-template-columns: 1fr; gap: 48px; }
   .hero { height: 76vh; min-height: 480px; max-height: 640px; }
   .hero-overlay { padding-bottom: 13%; }
-  .hero-statement { max-width: 92%; }
+  .hero-statement {
+    max-width: 100%;
+    font-size: clamp(1rem, 5.8vw, 1.5rem);
+    line-height: 1.32;
+  }
   .contact-row { grid-template-columns: 44px minmax(0, 1fr); gap: 16px; }
   .contact-icon { width: 44px; height: 44px; }
   .contact-row .btn { grid-column: 2; justify-self: start; }
